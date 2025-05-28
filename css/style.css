@@ -1,0 +1,105 @@
+/* Variáveis de cores e fontes */
+:root {
+  --cor-primaria: #0077b6;
+  --cor-secundaria: #023e8a;
+  --cor-fundo: #f1f5f9;
+  --cor-texto: #333;
+  --cor-menu: #fff;
+  --cor-hover: #90e0ef;
+
+  --fonte: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+header {
+  background-color: var(--cor-menu);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav h1 {
+  color: var(--cor-primaria);
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-weight: 600;
+  padding: 0.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: var(--cor-hover);
+  border-radius: 4px;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+section h2 {
+  color: var(--cor-secundaria);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+section p {
+  max-width: 600px;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+section img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
