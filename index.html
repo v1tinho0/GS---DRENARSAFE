@@ -14,6 +14,7 @@
 
     <header>
         <nav>
+            <img src="img/LOGO.png" alt="Logo DrenarSafe" class="logo">
             <h1>DrenarSafe</h1>
             <ul>
                 <li><a href="#problema">Problema</a></li>
@@ -31,9 +32,9 @@
             <div class="conteudo">
                 <h2>O problema</h2>
                 <p>Enchentes causam prejuízos e transtornos. Bueiros entupidos impedem o escoamento da água, aumentando
-                o risco de alagamentos.</p>
+                    o risco de alagamentos.</p>
                 <p>A DrenaSafe surge para prevenir enchentes urbanas com tecnologia acessível, monitorando níveis de
-                água em tempo real.</p>
+                    água em tempo real.</p>
             </div>
             <img src="img/desastre.png" alt="Ilustração do problema">
         </section>
@@ -41,10 +42,11 @@
         <section id="tecnologias">
             <div class="conteudo">
                 <h2>Tecnologias</h2>
-                <p>Sensor de nível com Arduino, conectividade via rede sem fio, envio automático de alertas e dashboard para
-                visualização.</p>
+                <p>Sensor de nível com Arduino, conectividade via rede sem fio, envio automático de alertas e dashboard
+                    para
+                    visualização.</p>
                 <p>Grade especial para bueiros evita entupimentos, facilitando o monitoramento e reduzindo o risco de
-                falhas.</p>
+                    falhas.</p>
             </div>
             <img src="img/arduino.png" alt="Placa Arduino com sensor de nível d'água">
         </section>
@@ -61,7 +63,8 @@
         <section id="publico">
             <div class="conteudo">
                 <h2>Público</h2>
-                <p>Moradores de regiões urbanas com histórico de enchentes, prefeituras, órgãos públicos e condomínios.</p>
+                <p>Moradores de regiões urbanas com histórico de enchentes, prefeituras, órgãos públicos e condomínios.
+                </p>
                 <p>Empresas e organizações preocupadas com infraestrutura urbana e segurança hídrica.</p>
             </div>
             <img src="img/população.png" alt="Pessoas caminhando em área urbana com alagamentos">
@@ -80,8 +83,9 @@
             <div class="conteudo">
                 <h2>No dia a dia</h2>
                 <p>O sensor envia alertas por aplicativo, SMS ou e-mail, ajudando os moradores a se prepararem com
-                antecedência.</p>
-                <p>Equipes de manutenção também recebem notificações, agilizando a limpeza e verificação dos bueiros.</p>
+                    antecedência.</p>
+                <p>Equipes de manutenção também recebem notificações, agilizando a limpeza e verificação dos bueiros.
+                </p>
             </div>
             <img src="img/FotoFinal.png" alt="Pessoa recebendo alerta no celular">
         </section>
@@ -90,7 +94,28 @@
     <footer>
         <p>&copy; 2025 DrenaSafe. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('nav ul li a');
 
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70; // ajuste baseado na altura do header
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
