@@ -69,10 +69,13 @@ main {
 }
 
 section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  display: flex;               /* flex container em linha */
+  flex-direction: row;         /* padrão, mas explicita */
+  justify-content: space-between; /* separa texto e imagem */
+  align-items: center;         /* centraliza verticalmente */
+  text-align: left;            /* texto alinhado à esquerda */
+  gap: 2rem;                   /* espaço entre texto e imagem */
+  padding: 2rem 0;
 }
 
 section h2 {
@@ -89,9 +92,8 @@ section p {
 }
 
 section img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
+  flex: 1;
+  max-width: 400px;
   border-radius: 8px;
 }
 
