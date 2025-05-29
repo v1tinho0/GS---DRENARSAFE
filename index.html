@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-hover: #d0e6ff;
+            /* Você pode trocar a cor se quiser */
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: var(--cor-hover);
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+    </style>
 </head>
 
 <body>
-    <section class="hero">
-         <div class="hero-content">
-        <h1>DrenarSafe: Tecnologia contra enchentes urbanas</h1>
-             <p>Monitoramento em tempo real, prevenção na prática.</p>
-              <a href="#tecnologias" class="cta-button">Saiba como funciona</a>
-         </div>
-    </section>
-
-
     <header>
         <nav>
             <img src="img/LOGO.png" alt="Logo DrenarSafe" class="logo">
@@ -34,6 +38,14 @@
             </ul>
         </nav>
     </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>DrenarSafe: Tecnologia contra enchentes urbanas</h1>
+            <p>Monitoramento em tempo real, prevenção na prática.</p>
+            <a href="#tecnologias" class="cta-button">Saiba como funciona</a>
+        </div>
+    </section>
 
     <main>
         <section id="problema">
@@ -50,31 +62,30 @@
         <section id="tecnologias">
             <div class="conteudo">
                 <h2>Tecnologias</h2>
-                 <p>Sensor de nível com Arduino, conectividade via rede sem fio, envio automático de alertas e dashboard
-                    para
-                    visualização.</p>
-              <p>Grade especial para bueiros evita entupimentos, facilitando o monitoramento e reduzindo o risco de
+                <p>Sensor de nível com Arduino, conectividade via rede sem fio, envio automático de alertas e dashboard
+                    para visualização.</p>
+                <p>Grade especial para bueiros evita entupimentos, facilitando o monitoramento e reduzindo o risco de
                     falhas.</p>
             </div>
             <img src="img/arduino.png" alt="Placa Arduino com sensor de nível d'água">
         </section>
 
-             <section id="cards" class="cards-section">
-              <h2>Soluções Tecnológicas</h2>
-                  <div class="cards">
-                 <div class="card">
-                   <img src="sensor.png" alt="Sensor">
-                      <h3>Monitoramento</h3>
-                         <p>Sensores detectam o nível da água em tempo real.</p>
+        <section id="cards" class="cards-section">
+            <h2>Soluções Tecnológicas</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="sensor.png" alt="Sensor">
+                    <h3>Monitoramento</h3>
+                    <p>Sensores detectam o nível da água em tempo real.</p>
                 </div>
                 <div class="card">
                     <img src="grade.png" alt="Grade inteligente">
-                      <h3>Grade Inteligente</h3>
-                         <p>Evita entupimento e facilita manutenção dos bueiros.</p>
+                    <h3>Grade Inteligente</h3>
+                    <p>Evita entupimento e facilita manutenção dos bueiros.</p>
                 </div>
-                </div>
+            </div>
         </section>
-        
+
         <section id="objetivos">
             <div class="conteudo">
                 <h2>Objetivos</h2>
@@ -123,11 +134,25 @@
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('nav ul li a');
 
+        // Controla o clique manual
+        let clickedSection = null;
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                clickedSection = link.getAttribute('href').substring(1); // remove o #
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                setTimeout(() => {
+                    clickedSection = null;
+                }, 1000); // reseta após um tempo
+            });
+        });
+
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !clickedSection) {
                     const id = entry.target.getAttribute('id');
-
                     navLinks.forEach(link => {
                         link.classList.remove('active');
                         if (link.getAttribute('href') === `#${id}`) {
@@ -137,13 +162,16 @@
                 }
             });
         }, {
-            threshold: 0.5
+            rootMargin: '-50% 0px -49% 0px',
+            threshold: 0
         });
 
         sections.forEach(section => {
             observer.observe(section);
         });
     </script>
+
+
 
 </body>
 
