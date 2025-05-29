@@ -206,7 +206,7 @@ footer {
   margin-top: 0.4rem;
   color: #ffffff;
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-  
+
 }
 
 .hero-content p {
@@ -278,4 +278,47 @@ footer {
 .card h3 {
   color: var(--cor-primaria);
   margin-bottom: 0.5rem;
+}
+
+#indicadores {
+  background-color: #f0f8ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.indicadores-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.indicador {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.indicador:hover {
+  transform: translateY(-5px);
+}
+
+.indicador img {
+  width: 40px;
+  margin-bottom: 15px;
+}
+
+.indicador h3 {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin: 0;
+}
+
+.indicador p {
+  font-size: 1rem;
+  margin-top: 8px;
 }
