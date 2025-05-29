@@ -11,14 +11,15 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: var(--fonte);
 }
-
 
 body {
   background: url('textura-clara.png') repeat;
-  background-color: #f1f5f9;
+  background-color: var(--cor-fundo);
+  margin: 0;
+  color: var(--cor-texto);
 }
-
 
 header {
   position: fixed;
@@ -28,12 +29,11 @@ header {
   z-index: 1000;
   background-color: var(--cor-menu);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  display: flex;
 }
-
 
 nav {
   display: flex;
@@ -55,6 +55,7 @@ nav img.logo {
 nav h1 {
   color: var(--cor-primaria);
   font-size: 1.5rem;
+  margin: 0;
 }
 
 nav ul {
@@ -66,22 +67,14 @@ nav ul {
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: var(--cor-texto);
-  font-weight: 600;
-  padding: 0.5rem;
-  transition: background 0.3s, color 0.3s;
-  text-align: right;
-  align-items: end;
-}
-
-nav ul li a {
   position: relative;
   text-decoration: none;
   color: var(--cor-texto);
   font-weight: 600;
   padding: 0.5rem;
   transition: color 0.3s;
+  text-align: right;
+  align-items: end;
 }
 
 nav ul li a::after {
@@ -102,10 +95,9 @@ nav ul li a.active::after {
   width: 60%;
 }
 
-
 main {
   padding: 2rem;
-  padding-top: 50px;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -147,6 +139,7 @@ section img {
   border-radius: 8px;
 }
 
+
 footer {
   background-color: var(--cor-secundaria);
   color: #fff;
@@ -154,51 +147,79 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .hero {
-  background-image: url('enchente.jpg');
-  /* ou outra imagem da sua pasta */
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 6rem 2rem;
-  text-align: center;
   position: relative;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+  background: linear-gradient(rgba(0, 85, 136, 0.7),
+      rgba(0, 85, 136, 0.7)),
+    url('enchente.jpg') center/cover no-repeat;
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  font-family: var(--fonte);
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
   max-width: 700px;
-  margin: auto;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  line-height: 2;
+  text-shadow: 1.5px 1.5px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content h1 .subtitle {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 0.4rem;
+  color: #ffffff;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  color: #afc9e5;
 }
 
 .cta-button {
   background-color: var(--cor-primaria);
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: bold;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
   text-decoration: none;
   display: inline-block;
-  margin-top: 1rem;
-  transition: background 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 119, 182, 0.4);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .cta-button:hover {
   background-color: var(--cor-secundaria);
+  box-shadow: 0 8px 20px rgba(2, 62, 138, 0.6);
 }
 
 .cards-section {
@@ -227,6 +248,7 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 260px;
   transition: transform 0.3s ease;
+  text-align: center;
 }
 
 .card:hover {
@@ -243,20 +265,4 @@ footer {
 .card h3 {
   color: var(--cor-primaria);
   margin-bottom: 0.5rem;
-}
-
-.hero {
-  background: linear-gradient(rgba(0, 85, 136, 0.6), rgba(0, 85, 136, 0.6)),
-    url('sua-imagem.jpg') center/cover no-repeat;
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-}
-
-.card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-align: center;
 }
