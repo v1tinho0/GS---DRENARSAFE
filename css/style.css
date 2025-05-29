@@ -35,6 +35,19 @@ header {
   padding: 0 2rem;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.logo-link h1 {
+  color: var(--cor-primaria);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
 nav {
   display: flex;
   align-items: center;
