@@ -40,10 +40,8 @@
         </nav>
     </header>
 
-
     <section class="hero" id="hero">
-        <div class="hero-content"
-            style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+        <div class="hero-content" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
             <div style="flex: 1; min-width: 280px;">
                 <h1>
                     DrenarSafe<br>
@@ -53,8 +51,7 @@
                 <a href="#tecnologias" class="cta-button">Saiba como funciona</a>
             </div>
             <div style="flex: 1; min-width: 280px;">
-                <div
-                    style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
                     <iframe src="https://www.youtube.com/embed/zMLAFkvj0Zk" title="DrenarSafe Vídeo" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -64,15 +61,12 @@
         </div>
     </section>
 
-
     <main>
         <section id="problema">
             <div class="conteudo">
                 <h2>O problema</h2>
-                <p>Enchentes causam prejuízos e transtornos. Bueiros entupidos impedem o escoamento da água, aumentando
-                    o risco de alagamentos.</p>
-                <p>A DrenaSafe surge para prevenir enchentes urbanas com tecnologia acessível, monitorando níveis de
-                    água em tempo real.</p>
+                <p>Enchentes causam prejuízos e transtornos. Bueiros entupidos impedem o escoamento da água, aumentando o risco de alagamentos.</p>
+                <p>A DrenaSafe surge para prevenir enchentes urbanas com tecnologia acessível, monitorando níveis de água em tempo real.</p>
             </div>
             <img src="img/desastre.png" alt="Ilustração do problema">
         </section>
@@ -80,10 +74,8 @@
         <section id="tecnologias">
             <div class="conteudo">
                 <h2>Tecnologias</h2>
-                <p>Sensor de nível com Arduino, conectividade via rede sem fio, envio automático de alertas e dashboard
-                    para visualização.</p>
-                <p>Grade especial para bueiros evita entupimentos, facilitando o monitoramento e reduzindo o risco de
-                    falhas.</p>
+                <p>Sensor de nível com Arduino, conectividade via rede sem fio, envio automático de alertas e dashboard para visualização.</p>
+                <p>Grade especial para bueiros evita entupimentos, facilitando o monitoramento e reduzindo o risco de falhas.</p>
             </div>
             <img src="img/arduino.png" alt="Placa Arduino com sensor de nível d'água">
         </section>
@@ -116,8 +108,7 @@
         <section id="publico">
             <div class="conteudo">
                 <h2>Público</h2>
-                <p>Moradores de regiões urbanas com histórico de enchentes, prefeituras, órgãos públicos e condomínios.
-                </p>
+                <p>Moradores de regiões urbanas com histórico de enchentes, prefeituras, órgãos públicos e condomínios.</p>
                 <p>Empresas e organizações preocupadas com infraestrutura urbana e segurança hídrica.</p>
             </div>
             <img src="img/população.png" alt="Pessoas caminhando em área urbana com alagamentos">
@@ -141,7 +132,6 @@
             </div>
         </section>
 
-
         <section id="beneficios">
             <div class="conteudo">
                 <h2>Benefícios</h2>
@@ -154,10 +144,8 @@
         <section id="cotidiano">
             <div class="conteudo">
                 <h2>No dia a dia</h2>
-                <p>O sensor envia alertas por aplicativo, SMS ou e-mail, ajudando os moradores a se prepararem com
-                    antecedência.</p>
-                <p>Equipes de manutenção também recebem notificações, agilizando a limpeza e verificação dos bueiros.
-                </p>
+                <p>O sensor envia alertas por aplicativo, SMS ou e-mail, ajudando os moradores a se prepararem com antecedência.</p>
+                <p>Equipes de manutenção também recebem notificações, agilizando a limpeza e verificação dos bueiros.</p>
             </div>
             <img src="img/FotoFinal.png" alt="Pessoa recebendo alerta no celular">
         </section>
@@ -172,8 +160,7 @@
                 <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
 
                 <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem aqui..."
-                    required></textarea>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem aqui..." required></textarea>
 
                 <button type="submit">Enviar</button>
             </form>
@@ -183,49 +170,6 @@
     <footer>
         <p>&copy; 2025 DrenaSafe. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav ul li a');
-
-        let clickedSection = null;
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                clickedSection = link.getAttribute('href').substring(1);
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-
-                setTimeout(() => {
-                    clickedSection = null;
-                }, 1000);
-            });
-        });
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !clickedSection) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, {
-            rootMargin: '-50% 0px -49% 0px',
-            threshold: 0
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
-
-
-
 </body>
 
 </html>
