@@ -252,6 +252,7 @@ footer {
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -279,6 +280,43 @@ footer {
   color: var(--cor-primaria);
   margin-bottom: 0.5rem;
 }
+
+.card1 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.card1:hover {
+  transform: translateY(-5px);
+}
+
+.card1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card1 h3 {
+    color: var(--cor-primaria);
+    margin: 10px 0 5px;
+    text-align: center;
+}
+
+.card1 p {
+    margin-top: auto;
+    text-align: center;
+}
+
 
 #indicadores {
   background-color: #f0f8ff;
