@@ -25,4 +25,6 @@ A DrenaSafe propõe sensores inteligentes instalados em bueiros, que monitoram o
 ## 🌐 Como acessar
 Abra o arquivo `index.html` em qualquer navegador moderno.
 
-## 📁 Organização do projeto
+## 📁 Projeto feito por:
+Victor Pereira de Andrade Santos - RM: 561548
+Paulo Rodrigues de Macedo Júnior - RM: 565898
